@@ -7,7 +7,7 @@ const firmRoutes = require('./routes/firmRoutes');
 const productRoutes = require('./routes/productRoutes');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 dotEnv.config();
 console.log(process.env.MONGO_URI);
@@ -25,6 +25,6 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
     });
 
-app.use('/home', (req, res) => {
+app.use('/', (req, res) => {
     res.send('<h1> Welcome to the home page!');
     });
